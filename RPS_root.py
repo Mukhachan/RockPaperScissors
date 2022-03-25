@@ -21,6 +21,7 @@ def output_EXIT(event):
     sys.exit()
 
 def output_RETRY(event):
+    sleep(0.25)
     LabelOPP.delete(0, END)
     LabelOPP.insert(0, 'Opponent choise:')    
     Labelresult.delete(0, END)
@@ -61,7 +62,7 @@ def output_P(event):        # PAPER #
 
     if opp==1:
         gg="Rock"
-        res = 'You win'
+        res = 'You win!'
         print('Paper')
         print(res)
         
@@ -115,6 +116,7 @@ def output_S(event):        # SCISSORS #
 root = Tk()
 root.title("Rock-Paper-Scissors")
 root.geometry('550x250')
+root.resizable(0,0)
 
 # Entry #
 Labelresult = Entry(justify=CENTER)
@@ -151,6 +153,7 @@ LabelOPP.grid(row=5, column=1)
 
 Label1.grid(row=4, column=0, sticky=E)
 Label2.grid(row=5, column=0, sticky=E)
+
 # bind #
 ButtonQuit.bind("<Button-1>", output_EXIT)
 ButtonRetry.bind('<Button-1>', output_RETRY)
